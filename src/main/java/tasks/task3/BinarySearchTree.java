@@ -44,6 +44,16 @@ public class BinarySearchTree<E extends Comparable<E>> extends AbstractSet<E> im
         return false;
     }
 
+    public int treeHeight() {
+        if (root == null) return 0;
+        return getHeight(root) - 1;
+    }
+
+    private int getHeight(Node node) {
+        if (node == null) return 0;
+        return Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+    }
+
     @Override
     public boolean add(E value) {
         if (value == null) {
@@ -238,6 +248,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends AbstractSet<E> im
             sb.append('}');
             return sb.toString();
         }
+
 
     }
 }
