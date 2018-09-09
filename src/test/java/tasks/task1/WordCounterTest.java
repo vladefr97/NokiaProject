@@ -1,4 +1,4 @@
-package tasks;
+package tasks.task1;
 
 import org.junit.After;
 import org.junit.Before;

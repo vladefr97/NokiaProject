@@ -5,16 +5,16 @@ import java.util.Comparator;
 import java.util.List;
 
 public class WordCounter implements Comparable<WordCounter> {
+    List<WordLength> wordCounts;
+
     public WordCounter() {
     }
-
-
 
     public WordCounter(List<WordLength> wordCounts) {
         this.wordCounts = wordCounts;
     }
 
-    List<WordLength> wordCounts;
+
 
     public static void main(String[] args) {
 
