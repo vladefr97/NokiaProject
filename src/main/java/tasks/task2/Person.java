@@ -75,5 +75,9 @@ public class Person implements Comparable<Person> {
         return this.name.compareTo(person.name);
 
     }
+
+    public String getName() {
+        return name;
+    }
 }
 
