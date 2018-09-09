@@ -1,6 +1,7 @@
-package tasks.task5;
+package tasks.task5.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tasks.task2.Person;
@@ -12,20 +13,9 @@ import java.util.List;
 
 @RestController
 public class CompanyController {
-    private static CompanyHirerachy company;
+    private static CompanyHirerachy company = new CompanyHirerachy();
 
-    public static void main(String[] args) {
-
-    }
-
-    @GetMapping("/hello")
-    public String hello(){
-        return "index";
-    }
-
-    @GetMapping("/employee")
-    public List<CompanyEmployee> getAllEmployee(){
-        company = new CompanyHirerachy();
+    static {
 
         CompanyEmployee Igor = new CompanyEmployee(new Person(22, true, "Igor"), true);
         CompanyEmployee John = new CompanyEmployee(new Person(22, true, "John"), true);
@@ -33,7 +23,7 @@ public class CompanyController {
         CompanyEmployee Petr = new CompanyEmployee(new Person(22, true, "Petr"), true);
         CompanyEmployee Vasia = new CompanyEmployee(new Person(44, true, "Vasia"), true);
 
-        company.addEmployees(Arrays.asList(Igor,John,Ivan,Petr,Vasia));
+        company.addEmployees(Arrays.asList(Igor, John, Ivan, Petr, Vasia));
 
 
         company.assignEmployees(
@@ -53,7 +43,40 @@ public class CompanyController {
         );
 
 
-        return company.getCompanyEmployees();
+    }
+
+    public static void main(String[] args) {
 
     }
+
+    @RequestMapping("/hello")
+    public String hello() {
+        return "index";
+    }
+
+ /*   @RequestMapping("/employees/{id}")
+    public CompanyEmployee getEmployee(@PathVariable int id) {
+
+        if(company.companyContainsEmployeeWithID(id))
+        return company.getEmployeeByID(id);
+        else return null;
+
+    }*/
+
+    private String getEmployeeLink(int employeeID)
+    {
+        return "<p><a href=\"/employees/\">"+employeeID+"Сотрудник - "+employeeID+"</a></p>";
+    }
+
+/*
+    @GetMapping("/employees")
+    public String getAllEmployee() {
+        StringBuilder str = new StringBuilder();
+
+        *//*company.getCompanyEmployees()
+                .forEach();
+        return company.getCompanyEmployees();*//*
+        return null;
+
+    }*/
 }

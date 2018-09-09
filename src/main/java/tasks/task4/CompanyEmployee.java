@@ -12,6 +12,7 @@ public class CompanyEmployee implements StandartEmployee {
     private static final double TAX_RATE = 0.10;
     int payGrade;
     private int id;
+    private String name;
     private Person person;
     private boolean paysTaxes;
     private List<Integer> directReportsIDs = new ArrayList<>();
@@ -23,14 +24,20 @@ public class CompanyEmployee implements StandartEmployee {
 
     public CompanyEmployee(Person person, boolean paysTaxes) {
         this.person = person;
+        name=person.getName();
         this.paysTaxes = paysTaxes;
     }
 
     public CompanyEmployee(Person person, boolean paysTaxes, int payGrade) {
         this.person = person;
+        name = person.getName();
         this.paysTaxes = paysTaxes;
         this.payGrade = payGrade;
 
+    }
+
+    public Person getPerson() {
+        return person;
     }
 
     public int getId() {
