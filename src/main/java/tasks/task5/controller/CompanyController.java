@@ -1,5 +1,6 @@
 package tasks.task5;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tasks.task2.Person;
@@ -17,7 +18,12 @@ public class CompanyController {
 
     }
 
-    @RequestMapping("/employee")
+    @GetMapping("/hello")
+    public String hello(){
+        return "index";
+    }
+
+    @GetMapping("/employee")
     public List<CompanyEmployee> getAllEmployee(){
         company = new CompanyHirerachy();
 
