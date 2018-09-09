@@ -5,7 +5,9 @@ import java.util.List;
 public interface StandartEmployee {
     double getIncome();
 
-    List<StandartEmployee> getManagers();
+    String getName();
 
-    List<StandartEmployee> getDirectReports();
+    List<Integer> getManagersIDs();
+
+    List<Integer> getDirectReportsIDs();
 }

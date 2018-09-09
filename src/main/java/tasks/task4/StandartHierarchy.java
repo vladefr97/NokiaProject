@@ -1,20 +1,14 @@
 package tasks.task4;
 
-import tasks.task2.Person;
 
-import java.util.List;
 
 public interface StandartHierarchy {
 
-    void addEmploye(
-            StandartEmployee newEmployee,
-            List<StandartEmployee> directReports,
-            List<StandartEmployee> managers
-    );
+    void addEmployee(StandartEmployee newEmployee);
 
-    Boolean deleteEmploye(StandartEmployee firedEmployee);
+    Boolean deleteEmployee(StandartEmployee firedEmployee);
 
-    void promoteEmploye(StandartEmployee downgradedEmployee);
+    void promoteEmployee(StandartEmployee downgradedEmployee);
 
 
     void downgradeEmployee(StandartEmployee downgradedEmployee);

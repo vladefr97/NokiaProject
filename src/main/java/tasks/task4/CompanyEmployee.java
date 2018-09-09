@@ -11,14 +11,12 @@ public class CompanyEmployee implements StandartEmployee {
     public static final double[] PAY_GRADES = {15000, 20000, 30000, 40000, 55000, 70000, 80000, 100000, 300000, 500000};//Enum сделать
     private static final double TAX_RATE = 0.10;
     int payGrade;
+    private int id;
     private Person person;
     private boolean paysTaxes;
+    private List<Integer> directReportsIDs = new ArrayList<>();
+    private List<Integer> managersIDs = new ArrayList<>();
 
-
-    private List<StandartEmployee> directReports =new ArrayList<>();
-
-
-    private List<StandartEmployee> managers = new ArrayList<>();
 
     public CompanyEmployee() {
     }
@@ -35,30 +33,69 @@ public class CompanyEmployee implements StandartEmployee {
 
     }
 
-    public void setDirectReports(List<StandartEmployee> directReports) {
-        this.directReports = directReports;
+    public int getId() {
+        return id;
     }
 
-    public void setManagers(List<StandartEmployee> managers) {
-        this.managers = managers;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void addManager(StandartEmployee manager) {
-        managers.add(manager);
+    public void removeDirectReport(int employeeID) {
+        int n = directReportsIDs.size();
+        for (int i = 0; i < n; i++) {
+            if (directReportsIDs.get(i) == employeeID) {
+                if (directReportsIDs.size() == 1) {
+                    directReportsIDs = null;
+                    directReportsIDs = new ArrayList<>();
+
+                } else
+                    directReportsIDs.remove(i);
+                return;
+            }
+        }
+    }
+
+    public void removeManger(int employeeID) {
+        int n = managersIDs.size();
+        for (int i = 0; i < n; i++) {
+            if (managersIDs.get(i) == employeeID) {
+                if (managersIDs.size() == 1) {
+                    managersIDs = null;
+                    managersIDs = new ArrayList<>();
+                } else
+                    managersIDs.remove(i);
+                return;
+            }
+        }
+    }
+
+    public void setDirectReportsIDs(List<Integer> directReportsIDs) {
+        this.directReportsIDs = directReportsIDs;
+    }
+
+    public void setManagersIDs(List<Integer> managersIDs) {
+        this.managersIDs = managersIDs;
+    }
+
+
+    public void addManager(Integer managerID) {
+        managersIDs.add(managerID);
 
     }
-    public void addManagers(List<StandartEmployee> newManagers)
-    {
-        newManagers.forEach(x->managers.add(x));
+
+    public void addManagers(List<Integer> newManagersIDs) {
+        // newManagersIDs.forEach(x-> managersIDs.add(x));
+        managersIDs.addAll(newManagersIDs);
     }
 
-    public void addDirectReport(StandartEmployee directReport) {
-        directReports.add(directReport);
+    public void addDirectReport(Integer directReportID) {
+        this.directReportsIDs.add(directReportID);
     }
 
-    public void addDirectReports(List<StandartEmployee> newDirectReports)
-    {
-        newDirectReports.forEach(x->directReports.add(x));
+    public void addDirectReports(List<Integer> newDirectReportsIDs) {
+        // newDirectReportsIDs.forEach(x-> directReportsIDs.add(x));
+        this.directReportsIDs.addAll(newDirectReportsIDs);
     }
 
     public boolean isPaysTaxes() {
@@ -75,24 +112,30 @@ public class CompanyEmployee implements StandartEmployee {
     }
 
     @Override
-    public List<StandartEmployee> getManagers() {
-
-        return managers;
+    public String getName() {
+        return person.getName();
     }
 
     @Override
-    public List<StandartEmployee> getDirectReports() {
-        return directReports;
+    public List<Integer> getManagersIDs() {
+        return managersIDs;
     }
+
+    @Override
+    public List<Integer> getDirectReportsIDs() {
+        return directReportsIDs;
+    }
+
 
     @Override
     public String toString() {
         return "CompanyEmployee{" +
                 "payGrade=" + payGrade +
+                ", id=" + id +
                 ", person=" + person +
                 ", paysTaxes=" + paysTaxes +
+                ", directReportsIDs=" + directReportsIDs +
+                ", managersIDs=" + managersIDs +
                 '}';
     }
-
-
 }
