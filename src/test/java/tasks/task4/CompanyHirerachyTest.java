@@ -62,9 +62,9 @@ public class CompanyHirerachyTest {
     @Test
     public void getCompanyEmployees() {
 
-        List<CompanyEmployee> expectedList = Arrays.asList(Igor,John,Ivan,Petr,Vasia);
+        List<CompanyEmployee> expectedList = Arrays.asList(Igor, John, Ivan, Petr, Vasia);
 
-        assertEquals(expectedList,company.getCompanyEmployees());
+        assertEquals(expectedList, company.getCompanyEmployees());
     }
 
     @Test
@@ -74,9 +74,9 @@ public class CompanyHirerachyTest {
     @Test
     public void companyContainsEmployeeWithID() {
 
-        assertEquals(true,company.companyContainsEmployeeWithID(Igor.getId()));
+        assertEquals(true, company.companyContainsEmployeeWithID(Igor.getId()));
         company.deleteEmployee(Igor);
-        assertEquals(false,company.companyContainsEmployeeWithID(Igor.getId()));
+        assertEquals(false, company.companyContainsEmployeeWithID(Igor.getId()));
 
     }
 
@@ -85,7 +85,7 @@ public class CompanyHirerachyTest {
 
         int i = Igor.getId();
 
-        assertEquals(Igor,company.getEmployeeByID(i));
+        assertEquals(Igor, company.getEmployeeByID(i));
     }
 
     @Test
@@ -99,9 +99,9 @@ public class CompanyHirerachyTest {
     @Test
     public void deleteEmployee() {
 
-        assertEquals(true,company.companyContainsEmployeeWithID(Vasia.getId()));
+        assertEquals(true, company.companyContainsEmployeeWithID(Vasia.getId()));
         company.deleteEmployee(Vasia);
-        assertEquals(false,company.companyContainsEmployeeWithID(Vasia.getId()));
+        assertEquals(false, company.companyContainsEmployeeWithID(Vasia.getId()));
 
     }
 

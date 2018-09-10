@@ -44,12 +44,12 @@ public class BinarySearchTree<E extends Comparable<E>> extends AbstractSet<E> im
         return false;
     }
 
-    public int treeHeight() {
+    public int treeHeight() {//get tree height
         if (root == null) return 0;
         return getHeight(root) - 1;
     }
 
-    private int getHeight(Node node) {
+    private int getHeight(Node node) {//get height from any node
         if (node == null) return 0;
         return Math.max(getHeight(node.left), getHeight(node.right)) + 1;
     }
@@ -93,7 +93,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends AbstractSet<E> im
         if (value == null) {
             throw new NullPointerException("value is null");
         }
-        @SuppressWarnings("unchecked")
+
         E key = (E) value;
         if (root == null) {
             return false;

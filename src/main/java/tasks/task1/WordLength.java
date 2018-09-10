@@ -3,8 +3,8 @@ package tasks.task1;
 public class WordLength implements Comparable<WordLength> {
 
 
-    int length;
-    int frequncy;
+    int length;//Length of the word
+    int frequncy;//word frequency in the string
 
     public WordLength(int length) {
         this.length = length;

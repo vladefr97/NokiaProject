@@ -26,7 +26,7 @@ public class WordCounterTest {
 
     @Test
     public void countEachWord() {
-        boolean check =  new WordCounter(Arrays.asList(
+        boolean check = new WordCounter(Arrays.asList(
                 new WordLength(2, 1),
                 new WordLength(4, 2),
                 new WordLength(5, 1),
@@ -34,11 +34,11 @@ public class WordCounterTest {
                 new WordLength(7, 1),
                 new WordLength(8, 2),
                 new WordLength(9, 1))).compareTo(
-                new WordCounter(wordCounter.countEachWord("Скажи-ка, дядя, ведь не даром Москва, спаленная пожаром, Французу отдана"))) == 0 ? true:false;
+                new WordCounter(wordCounter.countEachWord("Скажи-ка, дядя, ведь не даром Москва, спаленная пожаром, Французу отдана"))) == 0 ? true : false;
 
-        assertEquals(true,check);
-        assertEquals(null,wordCounter.countEachWord(null));
-        assertEquals(null,wordCounter.countEachWord(""));
+        assertEquals(true, check);
+        assertEquals(null, wordCounter.countEachWord(null));
+        assertEquals(null, wordCounter.countEachWord(""));
 
     }
 

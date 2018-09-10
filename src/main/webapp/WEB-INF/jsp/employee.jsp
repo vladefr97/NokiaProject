@@ -52,7 +52,10 @@
 
 
 <h2><button type="button" class="btn btn-info" style="display: inline-block;float: left; margin-left: 10px;"><a href="/" style="color: white;">Главная страница</a></button></h2>
-<h2><button type="button" class="btn btn-info" style="display: inline-block;float: left; margin-left: 10px;"><a href="/all" style="color: white;">Список сотрудников</a></button></h2>
+<h2>
+    <button type="button" class="btn btn-info" style="display: inline-block;float: left; margin-left: 10px;"><a
+            href="/all" style="color: white;">Список сотрудников</a></button>
+</h2>
 
 
 </body>

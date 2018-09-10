@@ -10,6 +10,7 @@ public class BinarySearchTreeTest {
 
     BinarySearchTree<String> binarySearchTree;
     BinarySearchTree<Integer> integerBinarySearchTree;
+
     @Before
     public void setUp() throws Exception {
         binarySearchTree = new BinarySearchTree<>();
@@ -25,7 +26,7 @@ public class BinarySearchTreeTest {
     @Test
     public void contains() {
         binarySearchTree.add("Elem");
-        assertEquals(true,binarySearchTree.contains("Elem"));
+        assertEquals(true, binarySearchTree.contains("Elem"));
     }
 
     @Test
@@ -33,13 +34,13 @@ public class BinarySearchTreeTest {
         binarySearchTree.add("раз");
         binarySearchTree.add("два");
 
-        assertEquals("раз",binarySearchTree.last());
-        assertEquals("два",binarySearchTree.first());
+        assertEquals("раз", binarySearchTree.last());
+        assertEquals("два", binarySearchTree.first());
 
         integerBinarySearchTree.add(1);
         integerBinarySearchTree.add(2);
         integerBinarySearchTree.add(-4);
-        assertEquals(new Integer(2),integerBinarySearchTree.last());
+        assertEquals(new Integer(2), integerBinarySearchTree.last());
     }
 
     @Test
@@ -47,9 +48,9 @@ public class BinarySearchTreeTest {
 
         binarySearchTree.add("Elem");
 
-        assertEquals(true,binarySearchTree.contains("Elem"));
-        assertEquals(true,binarySearchTree.remove("Elem"));
-        assertEquals(false,binarySearchTree.contains("Elem"));
+        assertEquals(true, binarySearchTree.contains("Elem"));
+        assertEquals(true, binarySearchTree.remove("Elem"));
+        assertEquals(false, binarySearchTree.contains("Elem"));
 
     }
 
@@ -67,24 +68,23 @@ public class BinarySearchTreeTest {
         integerBinarySearchTree.add(2);
         integerBinarySearchTree.add(-4);
 
-        assertEquals(3,integerBinarySearchTree.size());
+        assertEquals(3, integerBinarySearchTree.size());
 
     }
 
     @Test
     public void treeHeight() {
-        assertEquals(0,integerBinarySearchTree.treeHeight());
+        assertEquals(0, integerBinarySearchTree.treeHeight());
         integerBinarySearchTree.add(1);
         integerBinarySearchTree.add(2);
         integerBinarySearchTree.add(-4);
-        assertEquals(1,integerBinarySearchTree.treeHeight());
+        assertEquals(1, integerBinarySearchTree.treeHeight());
 
         integerBinarySearchTree.add(-6);
-        assertEquals(2,integerBinarySearchTree.treeHeight());
+        assertEquals(2, integerBinarySearchTree.treeHeight());
 
         integerBinarySearchTree.add(3);
-        assertEquals(2,integerBinarySearchTree.treeHeight());
-
+        assertEquals(2, integerBinarySearchTree.treeHeight());
 
 
     }

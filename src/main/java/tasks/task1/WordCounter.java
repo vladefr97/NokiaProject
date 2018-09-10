@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class WordCounter implements Comparable<WordCounter> {
+public class WordCounter implements Comparable<WordCounter> {//class for calculating number of each word
     List<WordLength> wordCounts;
 
     public WordCounter() {
@@ -13,7 +13,6 @@ public class WordCounter implements Comparable<WordCounter> {
     public WordCounter(List<WordLength> wordCounts) {
         this.wordCounts = wordCounts;
     }
-
 
 
     public static void main(String[] args) {

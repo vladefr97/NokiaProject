@@ -51,8 +51,8 @@ public class CompanyHirerachy implements StandartHierarchy {
 
 
         System.out.println(company);
-         company.deleteEmployee(John);
-         company.deleteEmployee(Igor);
+        company.deleteEmployee(John);
+        company.deleteEmployee(Igor);
 
     }
 
@@ -95,20 +95,6 @@ public class CompanyHirerachy implements StandartHierarchy {
         }
 
 
-       /* if (directReports != null) {
-            ((CompanyEmployee) newEmployee).setDirectReportsIDs(directReports);
-            directReports.forEach(x -> ((CompanyEmployee) x).addManager(newEmployee));
-            directReports.stream().filter(x -> !companyEmployees.contains(x)).forEach(x -> companyEmployees.add((CompanyEmployee) x));
-        }
-
-        if (managers != null) {
-            ((CompanyEmployee) newEmployee).setManagersIDs(managers);
-            managers.forEach(x -> ((CompanyEmployee) x).addDirectReport(newEmployee));
-            managers.stream().filter(x -> !companyEmployees.contains(x)).forEach(x -> companyEmployees.add((CompanyEmployee) x));
-        }
-        companyEmployees.add((CompanyEmployee) newEmployee);*/
-
-
     }
 
     public boolean companyContainsEmployeeWithID(int id) {
@@ -137,8 +123,8 @@ public class CompanyHirerachy implements StandartHierarchy {
     public void addEmployee(StandartEmployee newEmployee) {
 
         ((CompanyEmployee) newEmployee).setId(getNewEmployeeID());
-        if(!companyEmployees.contains(newEmployee))
-        companyEmployees.add((CompanyEmployee) newEmployee);
+        if (!companyEmployees.contains(newEmployee))
+            companyEmployees.add((CompanyEmployee) newEmployee);
     }
 
     @Override
@@ -155,23 +141,23 @@ public class CompanyHirerachy implements StandartHierarchy {
                     .stream()
                     .findFirst()
                     .get();
-            ((CompanyEmployee)firedEmployee).removeDirectReport(newDirectorID);
+            ((CompanyEmployee) firedEmployee).removeDirectReport(newDirectorID);
             CompanyEmployee newDirector = getEmployeeByID(newDirectorID);
             newDirector.removeManger(((CompanyEmployee) firedEmployee).getId());
             newDirector.addDirectReports(firedEmployee.getDirectReportsIDs());
 
             firedEmployee.getDirectReportsIDs()
                     .stream()
-                    .filter(x->getEmployeeByID(x)!=null)
+                    .filter(x -> getEmployeeByID(x) != null)
                     .forEach(
-                            x->getEmployeeByID(x)
+                            x -> getEmployeeByID(x)
                                     .removeManger(((CompanyEmployee) firedEmployee).getId())
                     );
             firedEmployee.getDirectReportsIDs()
                     .stream()
-                    .filter(x->getEmployeeByID(x)!=null)
+                    .filter(x -> getEmployeeByID(x) != null)
                     .forEach(
-                            x->getEmployeeByID(x).addManager(newDirectorID)
+                            x -> getEmployeeByID(x).addManager(newDirectorID)
                     );
 
         } else if (managersCount != 0 && directReportsCount != 0)//deleting middle manager
@@ -199,8 +185,8 @@ public class CompanyHirerachy implements StandartHierarchy {
 
             firedEmployee.getManagersIDs()
                     .forEach(
-                            x->getEmployeeByID(x)
-                                    .removeDirectReport(((CompanyEmployee)firedEmployee).getId())
+                            x -> getEmployeeByID(x)
+                                    .removeDirectReport(((CompanyEmployee) firedEmployee).getId())
                     );
         }
 

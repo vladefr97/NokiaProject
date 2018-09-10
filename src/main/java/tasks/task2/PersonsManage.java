@@ -19,7 +19,7 @@ public class PersonsManage {
     }
 
 
-    public  Map<Integer, List<Person>> getListOfPersonForEachAge(List<Person> personsList) {
+    public  Map<Integer, List<Person>> getListOfPersonForEachAge(List<Person> personsList) {//this function returns map in which key - person's age, value - list of persons with this age
 
         Map<Integer, List<Person>> personByAge = personsList.stream().collect(
                 Collectors.groupingBy(Person::getAge)
@@ -28,7 +28,7 @@ public class PersonsManage {
         return personByAge;
     }
 
-    public void printEachPersonByAge(Map<Integer, List<Person>> personByAge) {
+    public void printEachPersonByAge(Map<Integer, List<Person>> personByAge) {//printing persons grouping by age
 
         for (Map.Entry<Integer, List<Person>> item : personByAge.entrySet()) {
             System.out.println(item.getKey() + " - " + item.getValue().size());
@@ -38,7 +38,7 @@ public class PersonsManage {
     }
 
 
-    public  List<Person> getWithoutFifthPersonsList(List<Person> personsList) {
+    public  List<Person> getWithoutFifthPersonsList(List<Person> personsList) {//this function returns list of persons in which every fifth element is removed
 
         System.out.println("-----------Изначальный----------");
         personsList.forEach(x -> System.out.println(x));

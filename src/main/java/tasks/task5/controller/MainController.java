@@ -46,8 +46,7 @@ public class MainController {
 
     }
 
-    // внедряем значение из application.properties
-  //  @Value("${welcome.message:test}")
+
     private String message = "Hello World";
 
 
@@ -56,33 +55,28 @@ public class MainController {
         model.put("message", this.message);
         return "index";
     }
+
     @RequestMapping("/employees/{id}")
-    public String getEmployee(@PathVariable int id, Map<String,Object> model) {
+    public String getEmployee(@PathVariable int id, Map<String, Object> model) {
         CompanyEmployee employee = company.getEmployeeByID(id);
 
-        model.put("id",id);
-        model.put("name",employee.getName());
-        model.put("paysTaxes",employee.isPaysTaxes());
-        model.put("directReportsIDs",employee.getDirectReportsIDs());
-        model.put("managersIDs",employee.getManagersIDs());
+        model.put("id", id);
+        model.put("name", employee.getName());
+        model.put("paysTaxes", employee.isPaysTaxes());
+        model.put("directReportsIDs", employee.getDirectReportsIDs());
+        model.put("managersIDs", employee.getManagersIDs());
 
         return "employee";
 
     }
 
     @RequestMapping("/all")
-    public String allEmployees(Map<String, Object> model)
-    {
-        model.put("allEmployees",company.getCompanyEmployees());
-        model.put("employee",company.getEmployeeByID(2));
-        model.put("name",company.getEmployeeByID(2).getName());
-        model.put("directReports",company.getEmployeeByID(2).getDirectReportsIDs());
+    public String allEmployees(Map<String, Object> model) {
+        model.put("allEmployees", company.getCompanyEmployees());
+        model.put("employee", company.getEmployeeByID(2));
+        model.put("name", company.getEmployeeByID(2).getName());
+        model.put("directReports", company.getEmployeeByID(2).getDirectReportsIDs());
         return "employeesList";
     }
 
-    /*@RequestMapping("/employees/{id}")
-    public String getEmployee(@PathVariable String id) {
-
-        return "sdd";
-    }*/
 }

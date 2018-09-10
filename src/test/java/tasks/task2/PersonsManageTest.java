@@ -29,13 +29,13 @@ public class PersonsManageTest {
                 new Person(10, false, "Hillary"),
                 new Person(25, true, "Vladimir"),
                 new Person(10, false, "Angela")
-                ));
+        ));
 
         Map<Integer, List<Person>> expectedMap = new HashMap<>();
         expectedMap.put(25, Arrays.asList(new Person(25, true, "Vladimir")));
         expectedMap.put(10, Arrays.asList(
-                new Person(10,false,"Hillary"),
-                new Person(10,false,"Angela")
+                new Person(10, false, "Hillary"),
+                new Person(10, false, "Angela")
         ));
 
 
@@ -58,7 +58,7 @@ public class PersonsManageTest {
                     check = false;
             }
 
-            if(resultIterator.hasNext()||expectedIterator.hasNext())
+            if (resultIterator.hasNext() || expectedIterator.hasNext())
                 check = false;
 
         }

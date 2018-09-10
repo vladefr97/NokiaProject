@@ -49,34 +49,9 @@ public class CompanyController {
 
     }
 
-    @RequestMapping("/hello")
-    public String hello() {
-        return "index";
+    private String getEmployeeLink(int employeeID) {
+        return "<p><a href=\"/employees/\">" + employeeID + "Сотрудник - " + employeeID + "</a></p>";
     }
 
- /*   @RequestMapping("/employees/{id}")
-    public CompanyEmployee getEmployee(@PathVariable int id) {
 
-        if(company.companyContainsEmployeeWithID(id))
-        return company.getEmployeeByID(id);
-        else return null;
-
-    }*/
-
-    private String getEmployeeLink(int employeeID)
-    {
-        return "<p><a href=\"/employees/\">"+employeeID+"Сотрудник - "+employeeID+"</a></p>";
-    }
-
-/*
-    @GetMapping("/employees")
-    public String getAllEmployee() {
-        StringBuilder str = new StringBuilder();
-
-        *//*company.getCompanyEmployees()
-                .forEach();
-        return company.getCompanyEmployees();*//*
-        return null;
-
-    }*/
 }
