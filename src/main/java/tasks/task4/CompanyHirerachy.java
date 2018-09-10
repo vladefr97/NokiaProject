@@ -137,6 +137,7 @@ public class CompanyHirerachy implements StandartHierarchy {
     public void addEmployee(StandartEmployee newEmployee) {
 
         ((CompanyEmployee) newEmployee).setId(getNewEmployeeID());
+        if(!companyEmployees.contains(newEmployee))
         companyEmployees.add((CompanyEmployee) newEmployee);
     }
 
@@ -160,10 +161,15 @@ public class CompanyHirerachy implements StandartHierarchy {
             newDirector.addDirectReports(firedEmployee.getDirectReportsIDs());
 
             firedEmployee.getDirectReportsIDs()
+                    .stream()
+                    .filter(x->getEmployeeByID(x)!=null)
                     .forEach(
-                            x->getEmployeeByID(x).removeManger(((CompanyEmployee) firedEmployee).getId())
+                            x->getEmployeeByID(x)
+                                    .removeManger(((CompanyEmployee) firedEmployee).getId())
                     );
             firedEmployee.getDirectReportsIDs()
+                    .stream()
+                    .filter(x->getEmployeeByID(x)!=null)
                     .forEach(
                             x->getEmployeeByID(x).addManager(newDirectorID)
                     );

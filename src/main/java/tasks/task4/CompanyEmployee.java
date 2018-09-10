@@ -3,6 +3,7 @@ package tasks.task4;
 import tasks.task2.Person;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CompanyEmployee implements StandartEmployee {
@@ -87,22 +88,27 @@ public class CompanyEmployee implements StandartEmployee {
 
 
     public void addManager(Integer managerID) {
+        managersIDs = new ArrayList<>(managersIDs);
         managersIDs.add(managerID);
 
     }
 
     public void addManagers(List<Integer> newManagersIDs) {
         // newManagersIDs.forEach(x-> managersIDs.add(x));
-        managersIDs.addAll(newManagersIDs);
+       managersIDs = new ArrayList<>(managersIDs);
+       managersIDs.addAll(newManagersIDs);
     }
 
     public void addDirectReport(Integer directReportID) {
-        this.directReportsIDs.add(directReportID);
+       directReportsIDs = new ArrayList<>(directReportsIDs);
+       directReportsIDs.add(directReportID);
     }
 
     public void addDirectReports(List<Integer> newDirectReportsIDs) {
         // newDirectReportsIDs.forEach(x-> directReportsIDs.add(x));
-        this.directReportsIDs.addAll(newDirectReportsIDs);
+        directReportsIDs = new ArrayList<>(directReportsIDs);
+        directReportsIDs.addAll(newDirectReportsIDs);
+
     }
 
     public boolean isPaysTaxes() {

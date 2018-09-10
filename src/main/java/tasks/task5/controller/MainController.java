@@ -50,8 +50,7 @@ public class MainController {
   //  @Value("${welcome.message:test}")
     private String message = "Hello World";
 
-    // Обычно я использую интерфейс Model, но в целом разницы нет,
-    // т.к. используется реализация LinkedHashMap(Key, Val)
+
     @RequestMapping("/")
     public String welcome(Map<String, Object> model) {
         model.put("message", this.message);
